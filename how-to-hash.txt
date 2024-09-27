@@ -1,0 +1,7 @@
+To download the upstream repo's JAR, you'll need a GitHub account.
+
+Go to https://github.com/BananaFructa/Apec/actions/runs/10754461379/artifacts/1904996291 and scroll down and click on the "Apec" words in the "Artifacts" section.
+
+Save it somewhere and then extract the files, then right-click -> Open in Terminal or Open in Command Prompt -> type "Get-FileHash Apec-1.8.9-forge.1.12.4.jar"
+Then compare the value to the above SHA-256 values.
+You can repeat with the dev jar if you want, but I highly doubt that's necessary.
