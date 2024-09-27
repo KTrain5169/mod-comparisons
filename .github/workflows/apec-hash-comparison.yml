@@ -8,8 +8,19 @@ jobs:
     name: Download and compare JAR files
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - name: "Download upstream repo's artifacts"
+        uses: actions/download-artifact@v4
+        with:
+          name: Apec
+          path: ${{ github.workspace }}
+          github-token: ${{ secrets.PAT }}
+          repository: BananaFructa/Apec
+          run-id: 10754461379
+
+      - name: "Rename artifacts so overrides don't happen"
+        run: |
+          mv Apec-1.8.9-forge-1.12.4.jar BananaFructa-Apec-1.8.9-forge-1.12.4.jar
+          mv Apec-1.8.9-forge-1.12.4-dev.jar BananaFructa-Apec-1.8.9-forge-1.12.4-dev.jar
         
       - name: "Download Wyvest's copy"
         run: |
@@ -17,8 +28,10 @@ jobs:
           wget https://github.com/Wyvest/Apec/releases/download/1.12.4/Apec-1.8.9-forge-1.12.4-dev.jar
           mv Apec-1.8.9-forge-1.12.4.jar Wyvest-Apec-1.8.9-forge-1.12.4.jar
           mv Apec-1.8.9-forge-1.12.4-dev.jar Wyvest-Apec-1.8.9-forge-1.12.4-dev.jar
+
       - name: Supply hashes & hash info
         run: |
+          sha256sum BananaFructa-Apec-1.8.9-forge-1.12.4.jar
           sha256sum Wyvest-Apec-1.8.9-forge-1.12.4.jar
+          sha256sum BananaFructa-Apec-1.8.9-forge-1.12.4-dev.jar
           sha256sum Wyvest-Apec-1.8.9-forge-1.12.4-dev.jar
-          cat how-to-hash.txt
