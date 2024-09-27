@@ -8,6 +8,9 @@ jobs:
     name: Download and compare JAR files
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        
       - name: "Download Wyvest's copy"
         run: |
           wget https://github.com/Wyvest/Apec/releases/download/1.12.4/Apec-1.8.9-forge-1.12.4.jar
@@ -18,3 +21,4 @@ jobs:
         run: |
           sha256sum BananaFructa-Apec-1.8.9-forge-1.12.4-dev.jar
           sha256sum Wyvest-Apec-1.8.9-forge-1.12.4-dev.jar
+          cat how-to-hash.txt
