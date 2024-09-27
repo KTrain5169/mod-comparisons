@@ -19,6 +19,6 @@ jobs:
           mv Apec-1.8.9-forge-1.12.4-dev.jar Wyvest-Apec-1.8.9-forge-1.12.4-dev.jar
       - name: Supply hashes & hash info
         run: |
-          sha256sum BananaFructa-Apec-1.8.9-forge-1.12.4-dev.jar
+          sha256sum Wyvest-Apec-1.8.9-forge-1.12.4.jar
           sha256sum Wyvest-Apec-1.8.9-forge-1.12.4-dev.jar
           cat how-to-hash.txt
